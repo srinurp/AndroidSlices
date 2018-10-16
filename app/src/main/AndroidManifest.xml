@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zoftino.slices">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SlicesListActivity"></activity>
+        <activity android:name=".SlicePresenterActivity"></activity>
+        <activity android:name=".CouponActivity"></activity>
+
+        <provider
+            android:name=".provider.CouponSlices"
+            android:authorities="com.zoftino.slices"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.app.slice.category.SLICE" />
+                <data
+                    android:host="zoftino.com"
+                    android:pathPrefix="/"
+                    android:scheme="https" />
+            </intent-filter>
+        </provider>
+    </application>
+
+</manifest>
